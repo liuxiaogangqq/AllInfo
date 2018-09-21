@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tools>
+	<toolbox scope="application">
+		<tool key="fieldTool" class="org.apache.velocity.tools.generic.FieldTool"
+			include="org.apache.velocity.runtime.RuntimeConstants" />
+		<tool key="escapeTool" class="org.apache.velocity.tools.generic.EscapeTool" />
+		<tool key="sortTool" class="org.apache.velocity.tools.generic.SortTool" />
+	</toolbox>
+</tools>

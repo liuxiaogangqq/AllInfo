@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false" threshold="null">
+  <!--This is final xml4j that confirms xml4j.dtd-->
+  <appender class="com.dhsr.smartid.util.TestLoggingRollingFileAppender" name="error">
+  	<param name="threshold" value="WARN"/>
+    <param name="File" value="${SmartID_nvwa.root}/logPT/test_error0_0.log"/>
+    <param name="Append" value="true"/>  
+    <param name="maxFileSize" value="10MB"/>
+    <param name="maxBackupIndex" value="10"/>
+    <layout class="org.apache.log4j.PatternLayout">
+    	<param name="ConversionPattern" value="%d{yyyy-MM-dd-'T'HH:mm:ss.SSSZ} | ${host} | %x | %-15t | %-5p | %c | %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+    </filter>
+  </appender>
+  <appender class="com.dhsr.smartid.util.TestLoggingRollingFileAppender" name="info">
+    <param name="threshold" value="INFO"/>
+    <param name="File" value="${SmartID_nvwa.root}/logPT/test_info0_0.log"/>
+    <param name="Append" value="true"/>
+    <param name="maxFileSize" value="10MB"/>
+    <param name="maxBackupIndex" value="10"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy-MM-dd-'T'HH:mm:ss.SSSZ} | ${host} | %x | %-15t | %-5p | %c | %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+    </filter>
+  </appender>
+  <appender class="com.dhsr.smartid.util.TestLoggingRollingFileAppender" name="trace">
+    <param name="threshold" value="DEBUG"/>
+    <param name="File" value="${SmartID_nvwa.root}/logPT/test_trace0_0.log"/>
+    <param name="Append" value="true"/>
+    <param name="maxFileSize" value="10MB"/>
+    <param name="maxBackupIndex" value="10"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy-MM-dd-'T'HH:mm:ss.SSSZ} | ${host} | %x | %-15t | %-5p | %c | %m%n"/>
+    </layout>
+  </appender>
+  <logger additivity="true" name="com.dhsr.smartid.util">
+       <level value="INFO"/>
+       <appender-ref ref="error"/>
+       <appender-ref ref="info"/>
+       <appender-ref ref="trace"/>
+  </logger>
+
+</log4j:configuration>
